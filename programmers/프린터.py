@@ -14,3 +14,5 @@ def solution(priorities, location):
     for i, item in enumerate(waiting_q):
         if item[1] == location:
             return i + 1
+
+solution([2,1,3,2],2)
