@@ -1,7 +1,7 @@
 def solution(n, costs):
     costs = [(c,a,b) for a,b,c in costs]
     costs.sort()
-    visited = set()
+    bridges = 0
     cyc = [me for me in range(n)]
     answer = 0
     
@@ -18,10 +18,11 @@ def solution(n, costs):
 
     for x in costs:
         if find(x[1]) != find(x[2]):
-            visited.add(x[1])
-            visited.add(x[2])
             answer += x[0]
             union(x[1],x[2])
+            bridges += 1
+            if bridges == n-1:
+                break
             
     return answer
 
